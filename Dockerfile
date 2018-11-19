@@ -19,4 +19,4 @@ EXPOSE 5678
 EXPOSE 5679
 
 # Get ready to run command
-ENTRYPOINT ["./bin/atomix-agent","-c","./config/atomix.json","--ignore-resources"]
+ENTRYPOINT ["./bin/atomix-agent","-c","./config/atomix.json"]
