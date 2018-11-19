@@ -5,7 +5,7 @@ MAINTAINER Jian Li <gunine@sk.com>
 # Set the environment variables
 ENV HOME /root
 ENV BUILD_NUMBER docker
-ENV ATOMIX_VERSION 3.0.8
+ENV ATOMIX_VERSION 3.0.7
 
 # Copy in the binary
 RUN mkdir -p /root/atomix
@@ -19,4 +19,4 @@ EXPOSE 5678
 EXPOSE 5679
 
 # Get ready to run command
-ENTRYPOINT ["./bin/atomix-agent","-c","./config/atomix.json","--ignore-resources"]
+ENTRYPOINT ["./bin/atomix-agent","-c","./config/atomix.json"]
