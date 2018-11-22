@@ -5,7 +5,7 @@ MAINTAINER Jian Li <gunine@sk.com>
 # Set the environment variables
 ENV HOME /root
 ENV BUILD_NUMBER docker
-ENV ATOMIX_VERSION 3.1.0-beta1
+ENV ATOMIX_VERSION 3.1.0-beta2
 
 # Copy in the binary
 RUN mkdir -p /root/atomix
