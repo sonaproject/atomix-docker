@@ -1,11 +1,12 @@
+ARG JDK_VER=11
 # Configure Java 8 runtime environment
-FROM anapsix/alpine-java:8_server-jre
+FROM azul/zulu-openjdk:${JDK_VER}
 MAINTAINER Jian Li <gunine@sk.com>
 
 # Set the environment variables
 ENV HOME /root
 ENV BUILD_NUMBER docker
-ENV ATOMIX_VERSION 3.0.11
+ENV ATOMIX_VERSION 3.1.5
 
 # Copy in the binary
 RUN mkdir -p /root/atomix
