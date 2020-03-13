@@ -8,6 +8,9 @@ ENV HOME /root
 ENV BUILD_NUMBER docker
 ENV ATOMIX_VERSION 3.1.5
 
+RUN apt-get update && apt-get install -y curl wget && \
+        rm -rf /var/lib/apt/lists/*
+
 # Copy in the binary
 RUN mkdir -p /root/atomix
 RUN wget -O atomix-dist.tar.gz https://oss.sonatype.org/content/repositories/releases/io/atomix/atomix-dist/${ATOMIX_VERSION}/atomix-dist-${ATOMIX_VERSION}.tar.gz
