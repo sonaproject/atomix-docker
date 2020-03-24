@@ -1,6 +1,5 @@
-ARG JDK_VER=11
 # Configure Java 8 runtime environment
-FROM azul/zulu-openjdk:${JDK_VER}
+FROM anapsix/alpine-java:8_server-jre
 MAINTAINER Jian Li <gunine@sk.com>
 
 # Set the environment variables
@@ -8,8 +7,8 @@ ENV HOME /root
 ENV BUILD_NUMBER docker
 ENV ATOMIX_VERSION 3.1.5
 
-RUN apt-get update && apt-get install -y curl wget && \
-        rm -rf /var/lib/apt/lists/*
+RUN apk update && \
+        apk add curl wget
 
 # Copy in the binary
 RUN mkdir -p /root/atomix
@@ -23,4 +22,4 @@ EXPOSE 5678
 EXPOSE 5679
 
 # Get ready to run command
-ENTRYPOINT ["./bin/atomix-agent","-c","./config/atomix.json","--ignore-resources"]
+ENTRYPOINT ["./bin/atomix-agent","-c","./config/atomix.json"]
