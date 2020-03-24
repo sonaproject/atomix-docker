@@ -1,14 +1,14 @@
-# Configure Java 8 runtime environment
-FROM anapsix/alpine-java:8_server-jre
+ARG JDK_VER=11
+FROM azul/zulu-openjdk:${JDK_VER}
 MAINTAINER Jian Li <gunine@sk.com>
 
 # Set the environment variables
 ENV HOME /root
 ENV BUILD_NUMBER docker
-ENV ATOMIX_VERSION 3.1.7
+ENV ATOMIX_VERSION 3.1.6
 
-RUN apk update && \
-        apk add curl wget
+RUN apt-get update && apt-get install -y curl wget && \
+        rm -rf /var/lib/apt/lists/*
 
 # Copy in the binary
 RUN mkdir -p /root/atomix
