@@ -5,7 +5,7 @@ MAINTAINER Jian Li <gunine@sk.com>
 # Set the environment variables
 ENV HOME /root
 ENV BUILD_NUMBER docker
-ENV ATOMIX_VERSION 3.1.5
+ENV ATOMIX_VERSION 3.1.7
 
 RUN apk update && \
         apk add curl wget
