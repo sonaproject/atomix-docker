@@ -18,6 +18,9 @@ RUN rm -rf atomix-dist.tar.gz
 
 WORKDIR /root/atomix
 
+RUN rm -rf conf/logback.xml
+COPY logback.xml conf
+
 EXPOSE 5678
 EXPOSE 5679
 
