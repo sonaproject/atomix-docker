@@ -1,5 +1,5 @@
 ARG JDK_VER=11
-FROM azul/zulu-openjdk:${JDK_VER}
+FROM azul/zulu-openjdk-alpine:${JDK_VER}-jre
 MAINTAINER Jian Li <gunine@sk.com>
 
 # Set the environment variables
@@ -7,8 +7,8 @@ ENV HOME /root
 ENV BUILD_NUMBER docker
 ENV ATOMIX_VERSION 3.1.6
 
-RUN apt-get update && apt-get install -y curl wget && \
-        rm -rf /var/lib/apt/lists/*
+RUN apk update && \
+        apk add bash wget
 
 # Copy in the binary
 RUN mkdir -p /root/atomix
